@@ -7,28 +7,31 @@ public class Bullet : NetworkBehaviour
 {
     PlayerHealth playerHealth;
     //Damage que fait l'arme
-    public int damage = 1;
-
+    private int damage;
+    public GameObject enemy;
 
     public float attackCooldown = 0.25f;
     public bool canAttack;
     //D�termine quel Layer on peut toucher
     public LayerMask playerLayer;
     private float destroyDelay = 0f;
+    private void Awake(){
+        damage = enemy.GetComponent<RangedEnemyAI>().damage;
+    }
     private void Start()
     {
         canAttack = true;
+        
     }
     private void Update()
     {
         destroyDelay += Time.deltaTime;
+        damage = enemy.GetComponent<RangedEnemyAI>().damage;
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-
-
         if (!canAttack)
             return;
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
@@ -58,10 +61,6 @@ public class Bullet : NetworkBehaviour
         // Temp delay cause bullet spawns inside enemy
         if (destroyDelay > 0.1f)
             Destroy(gameObject);
-
-
-
-
     }
 
 
@@ -72,12 +71,17 @@ public class Bullet : NetworkBehaviour
         canAttack = true;
     }
 
-    public void IncreaseDamage(int mult){
-        damage = (int)(damage*1.5f);
+    public void IncreaseDamage(){
+        damage = (int)(damage+2);
     }
 
     [ServerRpc(RequireOwnership=false)]
-    public void IncreaseDamageServerRpc(int mult){
-        IncreaseDamage(mult);
+    public void IncreaseDamageServerRpc(){
+        IncreaseDamage();
+    }
+
+    [ClientRpc]
+    public void IncreaseDamageClientRpc(){
+        IncreaseDamage();
     }
 }

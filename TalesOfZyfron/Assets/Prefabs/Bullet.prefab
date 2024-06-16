@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  rangedEnemyAI: {fileID: 0}
+  enemy: {fileID: 3829391564668724846, guid: a30a90e8867733f46b394189de2032a2, type: 3}
   attackCooldown: 0.25
   canAttack: 0
   playerLayer:

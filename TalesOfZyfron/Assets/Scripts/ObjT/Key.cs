@@ -36,6 +36,10 @@ public class Key : NetworkBehaviour
     {
         Destroy(key);
     }
+    [ServerRpc(RequireOwnership=false)]
+    public void DestroyServerRpc(){
+        Destroy(key);
+    }
 
     public void FindKey()
     {
@@ -51,6 +55,8 @@ public class Key : NetworkBehaviour
         {
             openDoubleDoorScript.FindKey();
         } 
+        DestroyServerRpc();  
         DestroyClientRpc();
+        Destroy(key);
     }
 }

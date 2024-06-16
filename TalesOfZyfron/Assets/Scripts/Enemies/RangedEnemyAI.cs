@@ -40,6 +40,7 @@ public class RangedEnemyAI : NetworkBehaviour
     public AudioSource audioSource;
     public AudioClip gunsound;
     public AudioClip deathsound;
+    public int damage;
 
     
 
@@ -48,7 +49,7 @@ public class RangedEnemyAI : NetworkBehaviour
         animationHandler = GetComponent<AnimationHandler>();
         enemyHp = GetComponent<EnemyHp>();
         animator = enemySprite.GetComponent<Animator>();
-
+        
     }
 
 
@@ -59,7 +60,7 @@ public class RangedEnemyAI : NetworkBehaviour
         animationHandler.currState = AnimationHandler.EnemyState.Idle;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (gameManager.difficulty!=1){
-            IncreaseDifficultyServerRpc(gameManager.difficulty-1);
+            IncreaseDifficulty();
         }
     }
     
@@ -211,18 +212,24 @@ public class RangedEnemyAI : NetworkBehaviour
 
         Invoke(nameof(ResetAttack), attackSpeed);
     }
-    public void IncreaseDifficulty(int mult){
-        bullet.GetComponent<Bullet>().IncreaseDamage(mult);
-        enemyHp.IncreaseHP(mult);
+    public void IncreaseDifficulty(){
+        enemyHp.IncreaseHP();
     }
-
+    [ClientRpc]
+    public void IncreaseDamageClientRpc(){
+        IncreaseDamage();
+    }
+    public void IncreaseDamage(){
+        damage+=2;
+    }
+    
     [ServerRpc(RequireOwnership=false)]
-    public void IncreaseDifficultyServerRpc(int mult){
-        IncreaseDifficulty(mult);
+    public void IncreaseDifficultyServerRpc(){
+        IncreaseDifficulty();
     }
 
     [ClientRpc]
-    public void IncreaseDifficultyClientRpc(int mult){
-        IncreaseDifficulty(mult);
+    public void IncreaseDifficultyClientRpc(){
+        IncreaseDifficulty();
     }
 }

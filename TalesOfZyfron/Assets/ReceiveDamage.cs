@@ -85,8 +85,8 @@ public class ReceiveDamage : NetworkBehaviour
     public void GetDamageServerRpc(int damage){
         GetDamage(damage);
     }
-    public void IncreaseHP(int mult){
-        maxHitPoint*=2*mult;
+    public void IncreaseHP(){
+        maxHitPoint=(int)(maxHitPoint*1.5f);
         hitPoint = maxHitPoint;
     }
 }

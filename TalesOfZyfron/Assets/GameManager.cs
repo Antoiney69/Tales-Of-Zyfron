@@ -173,6 +173,7 @@ public class GameManager : NetworkBehaviour
     }
     private void IncreaseEnemiesDifficulty()
     {
+        bool applied = false;
         Debug.Log("Applying function");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Ennemy");
         foreach (GameObject enemy in enemies)
@@ -180,10 +181,16 @@ public class GameManager : NetworkBehaviour
             RangedEnemyAI enemyController = enemy.GetComponent<RangedEnemyAI>();
             if (enemyController != null)
             {
-                enemyController.IncreaseDifficultyClientRpc(difficulty-1);
+                enemyController.IncreaseDifficultyClientRpc();
+                if (!applied){
+                    enemyController.IncreaseDamageClientRpc();
+                    applied = true;
+                }
+                
                 Debug.Log("Applied on ennemy !");
             }
         }
+        
     }
 
     // Update is called once per frame
@@ -208,6 +215,7 @@ public class GameManager : NetworkBehaviour
     public void LoadSceneClientRpc(string sceneName)
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        IncreaseEnemiesDifficulty(); 
         foreach (GameObject player in players)
         {
 

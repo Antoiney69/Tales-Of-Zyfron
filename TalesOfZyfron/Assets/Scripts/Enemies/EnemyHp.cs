@@ -52,11 +52,11 @@ public class EnemyHp : NetworkBehaviour
         Die();
     }
 
-    public void IncreaseHP(int mult){
+    public void IncreaseHP(){
         hp=(int)(hp*1.5f);
     }
     [ServerRpc(RequireOwnership = false)]
-    public void IncreaseHPServerRpc(int mult){
-        IncreaseHP(mult);
+    public void IncreaseHPServerRpc(){
+        IncreaseHP();
     }
 }

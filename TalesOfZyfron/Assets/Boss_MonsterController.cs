@@ -99,9 +99,13 @@ public class Boss_MonsterController : NetworkBehaviour
         //R�f�rence de Player
 
         isAttacking = false;
-
-
-
+    }
+    public void Start(){
+        enemyHp = GetComponent<ReceiveDamage>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (gameManager.difficulty!=1 && gameManager.difficulty%6!=0){
+            enemyHp.IncreaseHP();
+        }
     }
 
     private void Update()
@@ -478,7 +482,7 @@ public class Boss_MonsterController : NetworkBehaviour
     }
     public void IncreaseDifficulty(int mult){
         meleeWeapon.IncreaseDamage(mult);
-        enemyHp.IncreaseHP(mult);
+        enemyHp.IncreaseHP();
     }
 
 
