@@ -561,7 +561,7 @@ private void HandleFootsteps()
             audioSource.Play();
         }
     }
-    else if (currState == MovementState.walking || currState == MovementState.sprinting || currState == MovementState.crouching)
+    else if (currState == MovementState.walking || currState == MovementState.sprinting || currState == MovementState.crouching || isWallRunning)
     {
         if (!audioSource.isPlaying || audioSource.clip == slide_sound)
         {

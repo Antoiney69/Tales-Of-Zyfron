@@ -4,3 +4,4 @@ CurrentBuild/TalesOfZyfron_Data/sharedassets1.assets.resS filter=lfs diff=lfs me
 CurrentBuild/UnityPlayer.dll filter=lfs diff=lfs merge=lfs -text
 >>>>>>> ef1b53192e47b67e9fe4461d9011a66404699b35
 *.fbx filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text

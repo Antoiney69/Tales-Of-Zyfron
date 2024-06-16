@@ -39,6 +39,7 @@ public class AudioManager : MonoBehaviour
     public void StartMusic()
     {
         musicSource.Stop();
+        musicSource.loop = true;
         musicSource.clip = MUSIC[Random.Range(0,MUSIC.Length-1)];
         musicSource.Play();
     }

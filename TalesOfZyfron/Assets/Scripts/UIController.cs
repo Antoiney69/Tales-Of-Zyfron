@@ -11,8 +11,8 @@ public class UIController : MonoBehaviour
     {
         if(audioManager is null)
         {
-            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
-        }
+            audioManager = GameObject.FindGameObjectWithTag("Audio Manager").GetComponent<AudioManager>();
+        }   
     }
 
     public void MusicVolume()

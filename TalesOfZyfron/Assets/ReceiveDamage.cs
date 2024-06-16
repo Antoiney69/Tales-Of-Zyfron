@@ -18,7 +18,7 @@ public class ReceiveDamage : NetworkBehaviour
     // Après avoir reçu un dégât :
     // La créature est invulnérable quelques instants
     public bool isInvulnerable;
-
+    private bool isDead = false;
     // Temps d'invulnérabilité
     public float invulnerabilityTime;
 
@@ -37,6 +37,7 @@ public class ReceiveDamage : NetworkBehaviour
     private void Update()
     {
         // Si invulnérable
+        if (isDead) return;
         if (isInvulnerable)
         {
             // Compte le temps depuis le dernier dégât
@@ -73,6 +74,7 @@ public class ReceiveDamage : NetworkBehaviour
         if (hitPoint <= 0)
         {
             // Appelle la méthode Defeated sur le GameObject (boss)
+            isDead = true;
             SendMessage("Defeated", SendMessageOptions.DontRequireReceiver);
             boss.Defeated();
             boss.IsDeadClientRpc();

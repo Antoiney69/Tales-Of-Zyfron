@@ -8686,14 +8686,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3898696067107050058, guid: 57c54cfd638538646ba1afadeac37d46, type: 3}
+      propertyPath: m_TagString
+      value: Audio Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 4387764913991040543, guid: 57c54cfd638538646ba1afadeac37d46, type: 3}
       propertyPath: SFX.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4387764913991040543, guid: 57c54cfd638538646ba1afadeac37d46, type: 3}
+      propertyPath: MUSIC.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4387764913991040543, guid: 57c54cfd638538646ba1afadeac37d46, type: 3}
       propertyPath: music.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4387764913991040543, guid: 57c54cfd638538646ba1afadeac37d46, type: 3}
+      propertyPath: MUSIC.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 11b7fe597302fa443814507ab24f047c, type: 3}
+    - target: {fileID: 4387764913991040543, guid: 57c54cfd638538646ba1afadeac37d46, type: 3}
+      propertyPath: MUSIC.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ef17090e72386b748aa7b1f793311518, type: 3}
     - target: {fileID: 4387764913991040543, guid: 57c54cfd638538646ba1afadeac37d46, type: 3}
       propertyPath: music.Array.data[0]
       value: 
