@@ -5,9 +5,11 @@ using Unity.Netcode;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using Unity.Services.Lobbies.Models;
+using TMPro;
+
 public class GameManager : NetworkBehaviour
 {
-    public NetworkVariable<bool> gameStarted;
+    public NetworkVariable<bool> gameStarted = new NetworkVariable<bool>();
     [SerializeField] int maxLevelIndex;
     public string joinCode;
     private int randomLevelIndex;
@@ -56,6 +58,8 @@ public class GameManager : NetworkBehaviour
         if (scene.name == "HubLevel")
         {
             gameStarted.Value = false;
+            TextMeshPro Text = GameObject.FindGameObjectWithTag("Code").GetComponent<TextMeshPro>();
+            Text.text = "Le code de la partie est:\n" + joinCode;
         }
                  
     }
@@ -190,7 +194,6 @@ public class GameManager : NetworkBehaviour
             {
                 playerController.SetLoadingScreen(true);
                 playerController.enabled = false;
-                
 
             }
         }

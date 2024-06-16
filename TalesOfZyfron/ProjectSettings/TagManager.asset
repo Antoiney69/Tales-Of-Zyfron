@@ -14,6 +14,8 @@ TagManager:
   - PlayerBody
   - Ennemy
   - playerweapon
+  - Sword
+  - Code
   layers:
   - Default
   - TransparentFX
