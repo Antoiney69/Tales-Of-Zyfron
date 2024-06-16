@@ -21,7 +21,8 @@ public class GameManager : NetworkBehaviour
 
     void Awake()
     {
-        gameStarted.Value = false;
+        Debug.Log("GameManager Awake started.");
+
         // Check if an instance already exists
         if (_instance != null && _instance != this)
         {
@@ -33,9 +34,30 @@ public class GameManager : NetworkBehaviour
         // Set the instance
         _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        // Ensure NetworkManager is ready
+        if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer)
+        {
+            if (gameStarted == null)
+            {
+                Debug.LogError("gameStarted is null. Initializing it.");
+                gameStarted = new NetworkVariable<bool>();
+            }
+
+            gameStarted.Value = false;
+            Debug.Log("gameStarted.Value set to false.");
+        }
+        else
+        {
+            Debug.LogError("NetworkManager not initialized or not server.");
+        }
+
         levelCounter = 0;
         difficulty = 1;
-    }
+
+        Debug.Log("GameManager Awake finished.");
+    
+}
     // Start is called before the first frame update
     public int alivePlayers = 1;
 
