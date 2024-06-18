@@ -31613,11 +31613,11 @@ PrefabInstance:
       objectReference: {fileID: 1875567508}
     - target: {fileID: 8702403923067591909, guid: ede8d6883af04ac43bee524e570ec020, type: 3}
       propertyPath: hitPoint
-      value: 200
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8702403923067591909, guid: ede8d6883af04ac43bee524e570ec020, type: 3}
       propertyPath: maxHitPoint
-      value: 200
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

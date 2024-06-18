@@ -1084,7 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 171153274
+  GlobalObjectIdHash: 541436581
   InScenePlacedSourceGlobalObjectIdHash: 3918908615
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   range: 10
   audioSource: {fileID: 3200511684395668962}
   gunsound: {fileID: 8300000, guid: 4de76c4d040691948af1ad8f345b3a52, type: 3}
-  deathsound: {fileID: 8300000, guid: 5121f4fb4deb1754180a90c25a329c64, type: 3}
+  deathsound: {fileID: 8300000, guid: 3dcfbc5dee8c9a74a84b56e9c58c4a7c, type: 3}
   damage: 5
 --- !u!114 &4216758036916470005
 MonoBehaviour:
