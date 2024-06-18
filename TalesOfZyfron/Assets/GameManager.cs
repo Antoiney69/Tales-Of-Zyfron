@@ -81,7 +81,7 @@ public class GameManager : NetworkBehaviour
         {
             gameStarted.Value = false;
             TextMeshPro Text = GameObject.FindGameObjectWithTag("Code").GetComponent<TextMeshPro>();
-            Text.text = "Le code de la partie est:\n" + joinCode;
+            Text.text = "The Rooms Code:\n" + joinCode;
         }
                  
     }
