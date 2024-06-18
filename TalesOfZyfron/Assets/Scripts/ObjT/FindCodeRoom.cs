@@ -8,6 +8,6 @@ public class FindCodeRoom : NetworkBehaviour
     public TextMeshPro Text;
     void Start()
     {
-        Text.text = "Le code de la partie est:\n" + GameObject.Find("GameManager").GetComponent<GameManager>().joinCode;
+        Text.text = "The Rooms Code:\n" + GameObject.Find("GameManager").GetComponent<GameManager>().joinCode;
     }
 }
